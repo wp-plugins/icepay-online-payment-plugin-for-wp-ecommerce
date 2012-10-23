@@ -67,7 +67,7 @@ ICEPAY offers you all of the online payment methods you wish to use in four conv
 This Online Payment plugin *only works with the WP e-commerce plugin for you WordPress webshop*. Are you looking for other Online Payment modules for Webshop software? Find the complete overview op webshop modules on our [website](http://www.icepay.com/webshop-modules "ICEPAY Webshop Online Payment Webshop Modules").
 
 = More information? =
-Visit our website for more information about this plugins, our accounts and the online payment methods we offer: [ICEPAY online payments](http://yoast.com/wordpress/seo/news-seo/).
+Visit our website for more information about this plugins, our accounts and the online payment methods we offer: [ICEPAY online payments](http://www.icepay.com/ "ICEPAY website").
 
 == Screenshots ==
 
@@ -76,10 +76,13 @@ Not available
 == Changelog ==
 
 = 1.0.2 =
-*Various bug fixes
+* Various bug fixes
+
+= 1.0.2 =
+* Various bug fixes
 
 = 1.0.0 =
-*Initial release - Release date: 5 sep 2012
+* Initial release - Release date: 5 sep 2012
 
 == Upgrade Notice ==
 = 1.0.2 =
