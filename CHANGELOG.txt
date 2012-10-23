@@ -1,0 +1,13 @@
+[CHANGELOG]
+
+::  Version 1.0.1
+		Release date: 28 sep 2012
+	Developed by: Wouter van Tilburg
+	Fixed header already sent issue
+	~
+
+::	Version 1.0.0: Initial release
+        Release date: 5 sep 2012
+	Developed by: Wouter van Tilburg & Olaf Abbenhuis
+	No information
+	~
