@@ -6,8 +6,6 @@ Requires at least: 3.0.1
 Tested up to: 3.4
 Stable tag: 1.0.2
 License: GNU GENERAL PUBLIC LICENSE - Version 3, 29 June 2007
-
-
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 ICEPAY online payment plugin for WP e-commerce provides all popular online payment methods for your WP e-commerce webshop.
@@ -25,6 +23,7 @@ The ICEPAY Online Payments for WP e-commerce plugin allows you to offer the most
 = Advanced plugin =
 
 With the ICEPAY Wordpress E-Commerce Webshop plugin you have a vast array of options:
+
 * Easy installation; adjust the settings and start to use the ICEPAY payment services straight away
 * Support of all ICEPAY accounts and payment methods
 * Extra possibilities for adjusting your payment methods: You can set your payment methods locally in your own webshop and for example change the display name
@@ -33,9 +32,9 @@ With the ICEPAY Wordpress E-Commerce Webshop plugin you have a vast array of opt
 
 **Please note: This addon only works with a valid and approved ICEPAY account. Please visit the [ICEPAY website](http://www.icepay.com/ "ICEPAY website") for more information**
 
-Requires at least WPecommerce plugin: 3.8.8.5
+**Requires at least WPecommerce plugin: 3.8.8.5**
 
-*This plugin is in no way affiliated with the WP e-commerce plugin[WP e-commerce plugin](http://wordpress.org/extend/plugins/wp-e-commerce/)*
+*This plugin is in no way affiliated with the [WP e-commerce plugin](http://wordpress.org/extend/plugins/wp-e-commerce/).*
 
 
 == Installation ==
