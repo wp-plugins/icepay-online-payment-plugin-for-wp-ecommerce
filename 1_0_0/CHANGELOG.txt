@@ -1,0 +1,8 @@
+[CHANGELOG]
+
+
+::	Version 1.0.0: Initial release
+        Release date: 5 sep 2012
+	Developed by: Wouter van Tilburg & Olaf Abbenhuis
+	No information
+	~
