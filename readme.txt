@@ -78,7 +78,7 @@ Not available
 = 1.0.2 =
 * Various bug fixes
 
-= 1.0.2 =
+= 1.0.1 =
 * Various bug fixes
 
 = 1.0.0 =
