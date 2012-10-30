@@ -1,4 +1,4 @@
-=== ICEPAY WP e-commerce Online Payment plugin ===
+=== ICEPAY WP e-Commerce Online Payment plugin ===
 Contributors: ICEPAY
 Donate link: http://www.icepay.com
 Tags: ICEPAY, Online Payment Plugin, WP e-Commerce, Payment Service Provider, Online payments, online transaction, secure payments, internet payment solution, secure payment processing, iDeal, Giropay, sofortbanking, text sms payments, phone payments, Creditcard, Visa, MasterCard, American Express, Diners Club International, Maestro International, JCB, Laser, Carte Bleue, Dankort, CartaSi, Debit cards, full-service provider, local service, global payments
@@ -8,17 +8,22 @@ Stable tag: 1.0.2
 License: GNU GENERAL PUBLIC LICENSE - Version 3, 29 June 2007
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-ICEPAY online payment plugin for WP e-commerce provides all popular online payment methods for your WP e-commerce webshop.
+ICEPAY online payment plugin for WP e-Commerce provides all popular online payment methods for your WP e-Commerce webshop.
 
 == Description ==
 
 Offer online payments in your Wordpress WP e-Commerce webshop. Download the special ICEPAY Online Payment plugin for your Wordpress E-Commerce webshop and you will be able to offer the most popular national and international online payment methods.
 
-= WP e-commerce plugin =
-This plugin works with the WP e-commerce plugin [WP e-commerce plugin](http://wordpress.org/extend/plugins/wp-e-commerce/"http://wordpress.org/extend/plugins/wp-e-commerce/") and allows you to integrate all popular online payment methods in you Wordpress WP e-commerce webshop using your ICEPAY merchant account. 
+= WP e-Commerce plugin =
+This plugin works with the WP e-Commerce plugin [WP e-Commerce plugin](http://wordpress.org/extend/plugins/wp-e-commerce/"http://wordpress.org/extend/plugins/wp-e-commerce/") and allows you to integrate all popular online payment methods in you Wordpress WP e-Commerce webshop using your ICEPAY merchant account. 
 
 = All Popular Online Payment methods =
-The ICEPAY Online Payments for WP e-commerce plugin allows you to offer the most frequently used national and international online payment methods including iDeal, Giropay, PayPal, MrCash/Bancontact, Sofortbanking, text/sms payments, phone payments, Creditcard, Visa, MasterCard, American Express, Diners Club International, Maestro International, JCB, Laser, Carte Bleue, Dankort, CartaSi and Debit cards. Visit our website for more information about our [online payment methods and account options](http://www.icepay.com/online-payments-accounts "ICEPAY Online Payment Accounts").
+The ICEPAY Online Payments for WP e-Commerce plugin allows you to offer the most frequently used national and international online payment methods including iDeal, Giropay, PayPal, MrCash/Bancontact, Sofortbanking, text/sms payments, phone payments, Creditcard, Visa, MasterCard, American Express, Diners Club International, Maestro International, JCB, Laser, Carte Bleue, Dankort, CartaSi and Debit cards. Visit our website for more information about our [online payment methods and account options](http://www.icepay.com/online-payments-accounts "ICEPAY Online Payment Accounts").
+
+= Easy installation =
+Installing the ICEPAY WP e-Commerce Online Payment plugin is easy! Watch our video tutorial how to install the ICEPAY WP e-Commerce Online Payment plugin:
+
+[youtube http://www.youtube.com/watch?v=nzvBDbideMM]
 
 = Advanced plugin =
 
@@ -34,28 +39,32 @@ With the ICEPAY Wordpress E-Commerce Webshop plugin you have a vast array of opt
 
 **Requires at least WPecommerce plugin: 3.8.8.5**
 
-*This plugin is in no way affiliated with the [WP e-commerce plugin](http://wordpress.org/extend/plugins/wp-e-commerce/).*
+*This plugin is in no way affiliated with the [WP e-Commerce plugin](http://wordpress.org/extend/plugins/wp-e-commerce/).*
 
 
 == Installation ==
 
-1. Download the ICEPAY WP e-commerce Online Payment plugin.
-1. Log in to you administrator backend and go to plugins > Add New *or* upload the plugin to the `/wp-content/plugins/` directory (optionally you can search for *ICEPAY WP e-commerce Online Payment plugin* from the plugin backend).
+1. Download the ICEPAY WP e-Commerce Online Payment plugin.
+1. Log in to you administrator backend and go to plugins > Add New *or* upload the plugin to the `/wp-content/plugins/` directory (optionally you can search for *ICEPAY WP e-Commerce Online Payment plugin* from the plugin backend).
 1. Activate the plugin through the 'Plugins' menu in WordPress.
 1. **The module is now installed and ready for configuration.**
 1. Go to plugin settings and fill copy your ICEPAY Merchant account details (Merchant ID and Secret Code).
-1. Open the Wordpress E-commerce payment methods section
+1. Open the Wordpress E-Commerce payment methods section
 1. Enable the payment method(s). Activate the payment method by pressing the checkbox. To change the display name of the 
 payment method press edit while hovering the Icepay payment method.
+
+**Watch our video tutorial how to install the ICEPAY WP e-Commerce Online Payment plugin:**
+
+[youtube http://www.youtube.com/watch?v=nzvBDbideMM]
 
 = Updating =
 Before updating please make a backup of your existing files and database. Just in case. 
 
 == Frequently Asked Questions ==
 
-= Do I require an ICEPAY merchant account before I can use the ICEPAY WP e-commerce Online Payment plugin? =
+= Do I require an ICEPAY merchant account before I can use the ICEPAY WP e-Commerce Online Payment plugin? =
 
-Yes, in order to use this plugin and offer all popular online payment methods within you WP e-commerce webshop you require a valid and approved ICEPAY account. **Please visit the [ICEPAY website](http://www.icepay.com/ "ICEPAY website") for more information**
+Yes, in order to use this plugin and offer all popular online payment methods within you WP e-Commerce webshop you require a valid and approved ICEPAY account. **Please visit the [ICEPAY website](http://www.icepay.com/ "ICEPAY website") for more information**
 
 = What payment methods are available? =
 
@@ -63,7 +72,7 @@ ICEPAY offers you all of the online payment methods you wish to use in four conv
 
 = Does this plugin work with other Webshop Plugins? =
 
-This Online Payment plugin *only works with the WP e-commerce plugin for you WordPress webshop*. Are you looking for other Online Payment modules for Webshop software? Find the complete overview op webshop modules on our [website](http://www.icepay.com/webshop-modules "ICEPAY Webshop Online Payment Webshop Modules").
+This Online Payment plugin *only works with the WP e-Commerce plugin for you WordPress webshop*. Are you looking for other Online Payment modules for Webshop software? Find the complete overview op webshop modules on our [website](http://www.icepay.com/webshop-modules "ICEPAY Webshop Online Payment Webshop Modules").
 
 = More information? =
 Visit our website for more information about this plugins, our accounts and the online payment methods we offer: [ICEPAY online payments](http://www.icepay.com/ "ICEPAY website").
