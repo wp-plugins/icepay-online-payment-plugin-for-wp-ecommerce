@@ -23,7 +23,7 @@ The ICEPAY Online Payments for WP e-Commerce plugin allows you to offer the most
 = Easy installation =
 Installing the ICEPAY WP e-Commerce Online Payment plugin is easy! Watch our video tutorial how to install the ICEPAY WP e-Commerce Online Payment plugin:
 
-[youtube http://www.youtube.com/watch?v=nzvBDbideMM]
+[youtube http://www.youtube.com/watch?v=FJCEUbAkQaI]
 
 = Advanced plugin =
 
@@ -55,7 +55,7 @@ payment method press edit while hovering the Icepay payment method.
 
 **Watch our video tutorial how to install the ICEPAY WP e-Commerce Online Payment plugin:**
 
-[youtube http://www.youtube.com/watch?v=nzvBDbideMM]
+[youtube http://www.youtube.com/watch?v=FJCEUbAkQaI]
 
 = Updating =
 Before updating please make a backup of your existing files and database. Just in case. 
