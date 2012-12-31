@@ -1,5 +1,12 @@
 [CHANGELOG]
 
+:: Version 1.0.3
+		Release date: 31 dec 2012
+	Developed by: Wouter van Tilburg
+	
+	- Added KNAB to the iDeal issuerlist
+	~
+	
 :: Version 1.0.2
 		Release date: 15 okt 2012
 	Developed by: Wouter van Tilburg

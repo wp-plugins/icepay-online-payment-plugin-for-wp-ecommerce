@@ -14,7 +14,7 @@
 /**
  * ICEPAY Wordpress Payment module - Main script
  * 
- * @version 1.0.2
+ * @version 1.0.3
  * @author Wouter van Tilburg
  * @author Olaf Abbenhuis
  * @license http://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
@@ -26,10 +26,10 @@
  * Plugin URI: http://wordpress.org/extend/plugins/icepay/ 
  * Description: Enables ICEPAY within Wordpress Ecommerce
  * Author: ICEPAY
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author URI: http://www.icepay.com
  */
-define('ICEPAY_VERSION', '1.0.2');
+define('ICEPAY_VERSION', '1.0.3');
 
 define('WPSC_ICEPAY_FILE_PATH', dirname(__FILE__));
 define('WPSC_ICEPAY_URL', plugins_url('', __FILE__));
@@ -110,7 +110,12 @@ class ICEPAY_Basic extends wpsc_merchant {
             if (count($issuers) > 1) {
                 $output .= "<p><select name='{$key}_issuer' style='width:163px;'>";
                 foreach ($issuers as $issuer) {
-                    $output .= sprintf("<option value='%s'>%s</option>", $issuer, __($issuer, 'icepay'));
+                    $issuerName = $issuer;
+                    
+                    if ($issuer == 'KNABBANK')
+                        $issuerName = 'KNAB Bank';
+                    
+                    $output .= sprintf("<option value='%s'>%s</option>", $issuer, __($issuerName, 'icepay'));
                 }
                 $output .= "</select></p>";
             }
