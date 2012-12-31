@@ -112,7 +112,7 @@ class ICEPAY_Basic extends wpsc_merchant {
                 foreach ($issuers as $issuer) {
                     $issuerName = $issuer;
                     
-                    if ($issuer == 'KNABBANK')
+                    if ($issuer == 'KNAB')
                         $issuerName = 'KNAB Bank';
                     
                     $output .= sprintf("<option value='%s'>%s</option>", $issuer, __($issuerName, 'icepay'));
