@@ -1,0 +1,28 @@
+[CHANGELOG]
+
+:: Version 1.0.3
+		Release date: 31 dec 2012
+	Developed by: Wouter van Tilburg
+	
+	- Added KNAB to the iDeal issuerlist
+	~
+	
+:: Version 1.0.2
+		Release date: 15 okt 2012
+	Developed by: Wouter van Tilburg
+	
+	- Fixed postback url not found issue
+	~
+	
+:: Version 1.0.1
+		Release date: 12 okt 2012
+	Developed by: Wouter van Tilburg
+	
+	- Fixed language not being set properly
+	~
+
+::	Version 1.0.0: Initial release
+        Release date: 5 sep 2012
+	Developed by: Wouter van Tilburg & Olaf Abbenhuis
+	No information
+	~
