@@ -14,7 +14,7 @@
 /**
  * ICEPAY Wordpress Payment module - Main script
  * 
- * @version 1.0.3
+ * @version 1.0.4
  * @author Wouter van Tilburg
  * @author Olaf Abbenhuis
  * @license http://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
@@ -29,7 +29,7 @@
  * Version: 1.0.3
  * Author URI: http://www.icepay.com
  */
-define('ICEPAY_VERSION', '1.0.3');
+define('ICEPAY_VERSION', '1.0.4');
 
 define('WPSC_ICEPAY_FILE_PATH', dirname(__FILE__));
 define('WPSC_ICEPAY_URL', plugins_url('', __FILE__));
@@ -118,6 +118,8 @@ class ICEPAY_Basic extends wpsc_merchant {
                     $output .= sprintf("<option value='%s'>%s</option>", $issuer, __($issuerName, 'icepay'));
                 }
                 $output .= "</select></p>";
+            } else if (count($issuers) == 1) {
+                $output .= "<input type='hidden' name='{$key}_issuer' value='{$issuers[0]}' />";
             }
 
             $output .= "</td></tr>";
