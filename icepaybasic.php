@@ -26,7 +26,7 @@
  * Plugin URI: http://wordpress.org/extend/plugins/icepay/ 
  * Description: Enables ICEPAY within Wordpress Ecommerce
  * Author: ICEPAY
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author URI: http://www.icepay.com
  */
 define('ICEPAY_VERSION', '1.0.4');
