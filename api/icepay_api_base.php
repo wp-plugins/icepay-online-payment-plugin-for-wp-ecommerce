@@ -1,12 +1,12 @@
 <?php
 
 /**
- *  ICEPAY PHP API
+ *  ICEPAY API
  *
- *  @version 2.1.1
+ *  @version 2.2.0
  *  @author Olaf Abbenhuis
  *  @author Wouter van Tilburg
- *  @copyright Copyright (c) 2011-2012, ICEPAY
+ *  @copyright Copyright (c) 2012, ICEPAY
  *
  */
 
@@ -17,45 +17,79 @@
  *  @since 2.1.0
  */
 interface Icepay_PaymentObject_Interface_Abstract {
+
     public function setData($data);
+
     public function getData();
+
     public function setIssuer($issuer);
+
     public function getIssuer();
+
     public function setPaymentMethod($paymentmethod);
+
     public function getPaymentMethod();
+
     public function setCountry($country);
+
     public function getCountry();
+
     public function setCurrency($currency);
+
     public function getCurrency();
+
     public function setLanguage($lang);
+
     public function getLanguage();
+
     public function setAmount($amount);
+
     public function getAmount();
+
     public function setOrderID($id = "");
+
     public function getOrderID();
+
     public function setReference($reference = "");
+
     public function getReference();
+
     public function setDescription($info = "");
+
     public function getDescription();
 }
 
 interface Icepay_Basic_Paymentmethod_Interface_Abstract {
+
     public function getCode();
+
     public function getReadableName();
+
     public function getSupportedIssuers();
+
     public function getSupportedCountries();
+
     public function getSupportedCurrency();
+
     public function getSupportedLanguages();
+
     public function getSupportedAmountRange();
 }
 
 interface Icepay_WebserviceTransaction_Interface_Abstract {
+
     public function setData($data);
+
     public function getPaymentScreenURL();
+
     public function getPaymentID();
+
     public function getProviderTransactionID();
+
     public function getTestMode();
+
     public function getTimestamp();
+
     public function getEndUserIP();
 }
 
@@ -66,37 +100,37 @@ interface Icepay_WebserviceTransaction_Interface_Abstract {
  *  @since 2.1.0
  */
 class Icepay_TransactionObject implements Icepay_WebserviceTransaction_Interface_Abstract {
-    
+
     protected $data;
-    
-    public function setData($data){
+
+    public function setData($data) {
         $this->data = $data;
     }
-    
+
     public function getPaymentScreenURL() {
         return $this->data->PaymentScreenURL;
     }
-    
+
     public function getPaymentID() {
         return $this->data->PaymentID;
     }
-    
+
     public function getProviderTransactionID() {
         return $this->data->ProviderTransactionID;
     }
-    
+
     public function getTestMode() {
         return $this->data->TestMode;
     }
-    
+
     public function getTimestamp() {
         return $this->data->Timestamp;
     }
-    
+
     public function getEndUserIP() {
         return $this->data->EndUserIP;
     }
-    
+
 }
 
 /**
@@ -106,12 +140,12 @@ class Icepay_TransactionObject implements Icepay_WebserviceTransaction_Interface
  *  @since 2.1.1
  */
 class Icepay_PaymentObject implements Icepay_PaymentObject_Interface_Abstract {
-    
+
     protected $data;
     protected $api_type = "webservice";
     protected $pm_class;
     private static $instance;
-    
+
     /**
      * Construct of Icepay_PaymentObject
      * @since version 2.1.1
@@ -121,62 +155,63 @@ class Icepay_PaymentObject implements Icepay_PaymentObject_Interface_Abstract {
         // Instantiate $this->data explicitely for PHP Strict error reporting
         $this->data = new stdClass();
     }
-    
-    public static function getInstance() {       
+
+    public static function getInstance() {
         if (!self::$instance)
             self::$instance = new self();
-        return self::$instance;       
+        return self::$instance;
     }
-    
+
     /**
      * Set all fields in one method
      * @since version 2.1.0
      * @access public
      * @param object $data
      */
-    public function setData($data){
+    public function setData($data) {
         $this->data = $data;
     }
-    
+
     /**
      * Get all data as an object
      * @since version 2.1.0
      * @access public
      * @return object 
      */
-    public function getData(){
+    public function getData() {
         return $this->data;
     }
-    
+
     /**
      * Load a paymentmethod class for Basic
      * @since version 2.1.0
      * @access protected
      */
-    protected function loadBasicPaymentMethodClass(){
-        
-        if (!class_exists("Icepay_Api_Basic")) return $this;
+    protected function loadBasicPaymentMethodClass() {
+
+        if (!class_exists("Icepay_Api_Basic"))
+            return $this;
 
         $this->pm_class = Icepay_Api_Basic::getInstance()
-            ->readFolder()
-            ->getClassByPaymentMethodCode($this->data->ic_paymentmethod);
+                ->readFolder()
+                ->getClassByPaymentMethodCode($this->data->ic_paymentmethod);
 
-        if (count($this->pm_class->getSupportedIssuers()) == 1){
+        if (count($this->pm_class->getSupportedIssuers()) == 1) {
             $this->setIssuer(current($this->pm_class->getSupportedIssuers()));
         }
         return $this;
     }
-    
+
     /**
      * Get all data as an object
      * @since version 2.1.0
      * @access public
      * @return Icepay_Basic_Paymentmethod_Interface_Abstract 
      */
-    public function getBasicPaymentmethodClass(){
+    public function getBasicPaymentmethodClass() {
         return $this->pm_class;
     }
- 
+
     /**
      * Set the country field
      * @since version 1.0.0
@@ -225,7 +260,8 @@ class Icepay_PaymentObject implements Icepay_PaymentObject_Interface_Abstract {
      * @param int $amount !Required
      */
     public function setAmount($amount) {
-        intval($amount);
+        $amount = (int)(string)$amount;
+        
         if (!Icepay_Parameter_Validation::amount($amount))
             throw new Exception('Amount not valid');
         $this->data->ic_amount = $amount;
@@ -276,6 +312,11 @@ class Icepay_PaymentObject implements Icepay_PaymentObject_Interface_Abstract {
         return $this;
     }
 
+    public function setXML($xml) {
+        $this->data->ic_xml = $xml;
+        return $this;
+    }
+
     /**
      * Sets the payment method and checks if the method exists within the class
      * @since version 1.0.0
@@ -287,7 +328,7 @@ class Icepay_PaymentObject implements Icepay_PaymentObject_Interface_Abstract {
         $this->loadBasicPaymentMethodClass();
         return $this;
     }
-    
+
     public function getCountry() {
         return $this->data->ic_country;
     }
@@ -309,23 +350,26 @@ class Icepay_PaymentObject implements Icepay_PaymentObject_Interface_Abstract {
     }
 
     public function getReference() {
-        return (isset($this->data->ic_reference)?$this->data->ic_reference:null);
+        return (isset($this->data->ic_reference) ? $this->data->ic_reference : null);
     }
 
     public function getDescription() {
-        return (isset($this->data->ic_description)?$this->data->ic_description:null);
+        return (isset($this->data->ic_description) ? $this->data->ic_description : null);
     }
 
     public function getIssuer() {
-        return (isset($this->data->ic_issuer)?$this->data->ic_issuer:null);
+        return (isset($this->data->ic_issuer) ? $this->data->ic_issuer : null);
     }
 
     public function getPaymentMethod() {
-        return (isset($this->data->ic_paymentmethod)?$this->data->ic_paymentmethod:null);
+        return (isset($this->data->ic_paymentmethod) ? $this->data->ic_paymentmethod : null);
+    }
+
+    public function getXML() {
+        return $this->data->ic_xml;
     }
 
 }
-
 
 /**
  *  The Icepay_Paymentmethod is the base class for all payment method subclasses
@@ -334,16 +378,16 @@ class Icepay_PaymentObject implements Icepay_PaymentObject_Interface_Abstract {
  *  @since 2.1.0
  */
 class Icepay_Paymentmethod implements Icepay_Basic_Paymentmethod_Interface_Abstract {
-    public      $_version       = null;
-    public      $_method        = null;
-    public      $_readable_name = null;
-    public      $_issuer        = null;
-    public      $_country       = null;
-    public      $_language      = null;
-    public      $_currency      = null;
-    public      $_amount        = null;
-    
-    
+
+    public $_version = null;
+    public $_method = null;
+    public $_readable_name = null;
+    public $_issuer = null;
+    public $_country = null;
+    public $_language = null;
+    public $_currency = null;
+    public $_amount = null;
+
     /**
      * Get the version of the API or the loaded payment method class
      * @since version 1.0.1
@@ -353,7 +397,7 @@ class Icepay_Paymentmethod implements Icepay_Basic_Paymentmethod_Interface_Abstr
     public function getCode() {
         return $this->_method;
     }
-    
+
     /**
      * Get the version of the API or the loaded payment method class
      * @since version 1.0.1
@@ -416,8 +460,6 @@ class Icepay_Paymentmethod implements Icepay_Basic_Paymentmethod_Interface_Abstr
 
 }
 
-
-
 /**
  *  Icepay_StatusCode static class
  *  Contains the payment statuscode constants
@@ -426,11 +468,14 @@ class Icepay_Paymentmethod implements Icepay_Basic_Paymentmethod_Interface_Abstr
  *  @since 1.0.0
  */
 class Icepay_StatusCode {
+
     const OPEN = "OPEN";
+    const AUTHORIZED = "AUTHORIZED";
     const ERROR = "ERR";
     const SUCCESS = "OK";
     const REFUND = "REFUND";
     const CHARGEBACK = "CBACK";
+
 }
 
 /**
@@ -444,7 +489,7 @@ class Icepay_StatusCode {
 class Icepay_Project_Helper {
 
     private static $instance;
-    private $_release = "2.1.1";
+    private $_release = "2.2.0";
     private $_basic;
     private $_result;
     private $_postback;
@@ -533,7 +578,9 @@ class Icepay_Project_Helper {
  * 
  *  @author Olaf Abbenhuis
  *  @author Wouter van Tilburg
+ *  @package API_Base
  *  @since 1.0.0
+ *  @version 1.0.2
  *
  */
 class Icepay_Api_Base {
@@ -546,18 +593,17 @@ class Icepay_Api_Base {
     protected $_country = null;
     protected $_language = null;
     protected $_currency = null;
-    protected $_version = "1.0.0";
+    protected $_version = "1.0.2";
     protected $_doIPCheck = array();
-    protected $_ipRange = array();
+    protected $_whiteList = array();
     protected $data;
     protected $_logger;
 
-    
     public function __construct() {
         $this->_logger = Icepay_Api_Logger::getInstance();
         $this->data = new stdClass();
     }
-    
+
     /**
      * Validate data
      * @since version 1.0.0
@@ -575,7 +621,7 @@ class Icepay_Api_Base {
 
     /**
      * Use IP Check
-     * @since 2.1.0
+     * @since 1.0.1
      * @access public
      * @param boolean $bool
      */
@@ -590,14 +636,43 @@ class Icepay_Api_Base {
     }
 
     /**
+     * Add ip(s) to whitelist
+     * 
+     * @example '1.1.1.1', '1.1.1.1-1.1.1.2'
+     * @since 2.1.2
+     * @access public
+     * @param type $string 
+     */
+    public function addToWhitelist($string) {
+        // Remove whitespaces
+        $string = str_replace(' ', '', $string);
+
+        // Seperate ip's
+        $ipRanges = explode(",", $string);
+
+        foreach ($ipRanges as $ip) {
+            // Explode for range
+            $ip = explode("-", $ip);
+
+            if (count($ip) > 1) {
+                $this->setIPRange($ip[0], $ip[1]);
+            } else {
+                $this->setIPRange($ip[0], $ip[0]);
+            }
+        }
+    }
+
+    /**
      * Set the IP range
-     * @since 2.1.0
+     * @since 1.0.1
      * @access public
      * @param string $start
      * @param string $end
      */
     public function setIPRange($start, $end) {
-        $this->_ipRange[] = array('start' => $start, 'end' => $end);
+        $start = str_replace(' ', '', $start);
+        $end = str_replace(' ', '', $end);
+        $this->_whiteList[] = array('start' => $start, 'end' => $end);
 
         return $this;
     }
@@ -663,7 +738,7 @@ class Icepay_Api_Base {
 
     /**
      * Set the Pin Code field
-     * @since 2.1.0
+     * @since 1.0.1
      * @access public
      * @param (int) $pinCode 
      */
@@ -671,7 +746,7 @@ class Icepay_Api_Base {
         if (!Icepay_Parameter_Validation::pinCode($pinCode))
             throw new Exception('Pincode not valid');
 
-        $this->_pinCode = (int) $pinCode;
+        $this->_pinCode = (string) $pinCode;
 
         return $this;
     }
@@ -686,7 +761,6 @@ class Icepay_Api_Base {
         return $this->_pinCode;
     }
 
-
     /**
      * Set the success url field (optional)
      * @since version 1.0.1
@@ -694,7 +768,11 @@ class Icepay_Api_Base {
      * @param string $url
      */
     public function setSuccessURL($url = "") {
+        if (!isset($this->data))
+            $this->data = new stdClass();
+        
         $this->data->ic_urlcompleted = $url;
+
         return $this;
     }
 
@@ -705,10 +783,13 @@ class Icepay_Api_Base {
      * @param string $url
      */
     public function setErrorURL($url = "") {
+        if (!isset($this->data))
+            $this->data = new stdClass();
+        
         $this->data->ic_urlerror = $url;
         return $this;
     }
-    
+
     /**
      * Get the success URL
      * @since version 2.1.0
@@ -716,7 +797,7 @@ class Icepay_Api_Base {
      * @return string $url
      */
     public function getSuccessURL() {
-        return (isset($this->data->ic_urlcompleted))?$this->data->ic_urlcompleted:"";
+        return (isset($this->data->ic_urlcompleted)) ? $this->data->ic_urlcompleted : "";
     }
 
     /**
@@ -726,9 +807,8 @@ class Icepay_Api_Base {
      * @return string $url
      */
     public function getErrorURL() {
-        return (isset($this->data->ic_urlerror))?$this->data->ic_urlerror:"";
+        return (isset($this->data->ic_urlerror)) ? $this->data->ic_urlerror : "";
     }
-
 
     /**
      * Check if the ip is in range
@@ -838,7 +918,7 @@ class Icepay_Parameter_Validation {
      * @return bool 
      */
     public static function pinCode($string) {
-        return (strlen($string) == 6 && is_numeric($string));
+        return (strlen($string) == 8 && is_numeric($string));
     }
 
     /**
@@ -921,7 +1001,7 @@ class Icepay_Api_Logger {
     protected $_logHookClass = null;
     protected $_logHookFunc = null;
     protected $_logLevel = 14; // Log errors and transactions
-    
+
     /**
      * Enables logging 
      *  
@@ -929,6 +1009,7 @@ class Icepay_Api_Logger {
      * @access public  
      * @return \Icepay_Basicmode
      */
+
     public function enableLogging($bool = true) {
         $this->_loggingEnabled = $bool;
 
@@ -1057,6 +1138,7 @@ class Icepay_Api_Logger {
      * @param int $flag
      * @param bool $boolean
      */
+
     private function _setLoggingFlag($flag, $boolean = true) {
         if ($boolean) {
             $this->_logLevel |= $flag;
@@ -1073,6 +1155,7 @@ class Icepay_Api_Logger {
      * @param int $type
      * @return bool
      */
+
     private function _isLoggingSet($type) {
         return (($this->_logLevel & $type) == $type);
     }
@@ -1088,13 +1171,11 @@ class Icepay_Api_Logger {
      * @throws Exception 
      */
     public function log($line, $level = 1) {
-
         // Check if logging is enabled
         if (!$this->_loggingEnabled)
             return false;
 
         // Check if the level is within the required level
-
         if (!$this->_isLoggingSet($level))
             return false;
 
@@ -1110,6 +1191,7 @@ class Icepay_Api_Logger {
             $function = $this->_logHookFunc;
             $this->_logHookClass->$function($line);
         }
+
 
         // Log to Default File
         if ($this->_logToFile) {
@@ -1160,8 +1242,8 @@ class Icepay_Api_Logger {
  * 
  *  @since 1.0.0
  */
-class Icepay_Postback extends Icepay_Api_Base { 
-    
+class Icepay_Postback extends Icepay_Api_Base {
+
     public function __construct() {
         parent::__construct();
         $this->data = new stdClass();
@@ -1268,12 +1350,12 @@ class Icepay_Postback extends Icepay_Api_Base {
             $this->_logger->log('Invalid request method', Icepay_Api_Logger::ERROR);
             return false;
         }
-        
+
         if ($this->generateChecksumForVersion() != $this->data->checksum) {
             $this->_logger->log('Checksum does not match', Icepay_Api_Logger::ERROR);
             return false;
         }
-        
+
         return true;
     }
 
@@ -1283,15 +1365,15 @@ class Icepay_Postback extends Icepay_Api_Base {
      * @access public
      * @return boolean
      */
-    public function isVersionCheck() {
+    public function isVersionCheck() {       
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             $this->_logger->log('Invalid request method', Icepay_Api_Logger::ERROR);
             return false;
         }
-        
+
         if ($this->data->status != "VCHECK")
             return false;
-        
+
         return true;
     }
 
@@ -1308,19 +1390,19 @@ class Icepay_Postback extends Icepay_Api_Base {
         };
 
         $this->_logger->log(sprintf("Postback: %s", serialize($_POST)), Icepay_Api_Logger::TRANSACTION);
-        
+
         /* @since version 1.0.2 */
         foreach ($this->getPostbackResponseFields() as $obj => $param) {
             $this->data->$obj = (isset($_POST[$param])) ? $_POST[$param] : "";
-        }        
-        
+        }
+
         if ($this->isVersionCheck())
             return false;
-        
+
         if ($this->_doIPCheck) {
             $check = false;
 
-            foreach ($this->_ipRange as $ip) {
+            foreach ($this->_whiteList as $ip) {
                 $start = $ip['start'];
                 $end = $ip['end'];
                 if ($this->ip_in_range($_SERVER['REMOTE_ADDR'], "{$start}-{$end}")) {
@@ -1352,6 +1434,7 @@ class Icepay_Postback extends Icepay_Api_Base {
 
         if (!in_array(strtoupper($this->data->status), array(
                     Icepay_StatusCode::OPEN,
+                    Icepay_StatusCode::AUTHORIZED,
                     Icepay_StatusCode::SUCCESS,
                     Icepay_StatusCode::ERROR,
                     Icepay_StatusCode::REFUND,
@@ -1390,10 +1473,12 @@ class Icepay_Postback extends Icepay_Api_Base {
             $this->_logger->log("Status not set", Icepay_Api_Logger::ERROR);
             return false;
         }
+
         switch ($this->data->status) {
-            case Icepay_StatusCode::SUCCESS: return ($currentStatus == Icepay_StatusCode::OPEN);
+            case Icepay_StatusCode::SUCCESS: return ($currentStatus == Icepay_StatusCode::ERROR || $currentStatus == Icepay_StatusCode::AUTHORIZED || $currentStatus == Icepay_StatusCode::OPEN);
             case Icepay_StatusCode::OPEN: return ($currentStatus == Icepay_StatusCode::OPEN);
-            case Icepay_StatusCode::ERROR: return ($currentStatus == Icepay_StatusCode::OPEN);
+            case Icepay_StatusCode::AUTHORIZED: return ($currentStatus == Icepay_StatusCode::OPEN);
+            case Icepay_StatusCode::ERROR: return ($currentStatus == Icepay_StatusCode::OPEN || $currentStatus == Icepay_StatusCode::AUTHORIZED);
             case Icepay_StatusCode::CHARGEBACK: return ($currentStatus == Icepay_StatusCode::SUCCESS);
             case Icepay_StatusCode::REFUND: return ($currentStatus == Icepay_StatusCode::SUCCESS);
             default:
@@ -1416,7 +1501,7 @@ class Icepay_Result extends Icepay_Api_Base {
         parent::__construct();
         $this->data = new stdClass();
     }
-    
+
     /**
      * Validate the ICEPAY GET data
      * @since version 1.0.0
