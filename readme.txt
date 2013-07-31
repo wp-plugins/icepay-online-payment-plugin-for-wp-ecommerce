@@ -83,7 +83,6 @@ Visit our website for more information about this plugins, our accounts and the 
 2. Easily Select the online payment methods you want to offer in your webshop and change the display name of each payment method.
 
 == Changelog ==
-
 = 2.0.0 =
 * Added webservice integration (Paymentmethods can now be retrieved directly from your ICEPAY account)
 * Added Afterpay Support
