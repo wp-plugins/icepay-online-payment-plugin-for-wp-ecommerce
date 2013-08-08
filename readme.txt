@@ -15,7 +15,7 @@ ICEPAY online payment plugin for WP e-Commerce provides all popular online payme
 Offer online payments in your Wordpress WP e-Commerce webshop. Download the special ICEPAY Online Payment plugin for your Wordpress E-Commerce webshop and you will be able to offer the most popular national and international online payment methods.
 
 = WP e-Commerce plugin =
-This plugin works with the [WP e-Commerce plugin] (http://wordpress.org/extend/plugins/wp-e-commerce/ "WP e-Commerce Plugin") and allows you to integrate all popular online payment methods in you Wordpress WP e-Commerce webshop using your ICEPAY merchant account. 
+This plugin works with the [WP e-Commerce plugin](http://wordpress.org/extend/plugins/wp-e-commerce/ "WP e-Commerce Plugin") and allows you to integrate all popular online payment methods in you Wordpress WP e-Commerce webshop using your ICEPAY merchant account. 
 
 = All Popular Online Payment methods =
 The ICEPAY Online Payments for WP e-Commerce plugin allows you to offer the most frequently used national and international online payment methods including iDeal, Giropay, PayPal, MrCash/Bancontact, Sofortbanking, text/sms payments, phone payments, Creditcard, Visa, MasterCard, American Express, Diners Club International, Maestro International, JCB, Laser, Carte Bleue, Dankort, CartaSi and Debit cards. Visit our website for more information about our [online payment methods and account options](http://www.icepay.com/online-payments-accounts "ICEPAY Online Payment Accounts").
