@@ -2,12 +2,12 @@
 
 ###################################################################
 #                                                             	  #
-#	The property of ICEPAY www.icepay.eu                      #
+#	The property of ICEPAY www.icepay.eu                          #
 #                                                             	  #
 #   The merchant is entitled to change de ICEPAY plug-in code,	  #
-#	any changes will be at merchant's own risk.		  #
-#	Requesting ICEPAY support for a modified plug-in will be  #
-#	charged in accordance with the standard ICEPAY tariffs.	  #
+#	any changes will be at merchant's own risk.		              #
+#	Requesting ICEPAY support for a modified plug-in will be      #
+#	charged in accordance with the standard ICEPAY tariffs.	      #
 #                                                             	  #
 ###################################################################
 
@@ -15,7 +15,7 @@
  * ICEPAY Wordpress Payment module - Main script
  * 
  * @version 2.0.0
- * @author Wouter van Tilburg
+ * @author Wouter van Tilburg, Ricardo Jacobs
  * @license http://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
  * @copyright Copyright (c) 2012 ICEPAY B.V.
  * 
@@ -23,9 +23,9 @@
  * 
  * Plugin Name: ICEPAY for WP e-Commerce
  * Plugin URI: http://wordpress.org/extend/plugins/icepay/ 
- * Description: Enables ICEPAY within Wordpress e-Commerce
+ * Description: Enables ICEPAY within WP eCommerce
  * Author: ICEPAY
- * Version: 2.0.0
+ * Version: 2.0.1
  * Author URI: http://www.icepay.com
  */
 require_once(realpath(dirname(__FILE__)) . '/api/icepay_api_webservice.php');
@@ -34,7 +34,6 @@ require_once(realpath(dirname(__FILE__)) . '/classes/form.php');
 require_once(realpath(dirname(dirname(__FILE__))) . '/wp-e-commerce/wpsc-core/wpsc-functions.php');
 require_once(realpath(dirname(dirname(__FILE__))) . '/wp-e-commerce/wpsc-includes/merchant.class.php');
 require_once(realpath(dirname(dirname(__FILE__))) . '/wp-e-commerce/wpsc-includes/purchaselogs.class.php');
-require_once(realpath(dirname(dirname(__FILE__))) . '/wp-e-commerce/wpsc-theme/functions/wpsc-transaction_results_functions.php');
 
 // Add hook for activation
 register_activation_hook(__FILE__, 'ICEPAY_register');

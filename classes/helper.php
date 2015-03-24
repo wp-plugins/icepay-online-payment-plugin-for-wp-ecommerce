@@ -2,7 +2,7 @@
 
 class ICEPAY_Helper {
 
-    private static $version = '2.0.0';
+    private static $version = '2.0.1';
 
     public static function getVersion()
     {
