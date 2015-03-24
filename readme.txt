@@ -3,8 +3,8 @@ Contributors: ICEPAY
 Donate link: http://www.icepay.com
 Tags: ICEPAY, Online Payment Plugin, WP e-Commerce, Payment Service Provider, Online payments, online transaction, secure payments, internet payment solution, secure payment processing, iDeal, Giropay, sofortbanking, text sms payments, phone payments, Creditcard, Visa, MasterCard, American Express, Diners Club International, Maestro International, JCB, Laser, Carte Bleue, Dankort, CartaSi, Debit cards, full-service provider, local service, global payments
 Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 2.0.0
+Tested up to: 4.1.1
+Stable tag: 2.0.1
 License: GNU GENERAL PUBLIC LICENSE - Version 3, 29 June 2007
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
